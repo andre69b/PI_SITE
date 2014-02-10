@@ -31,7 +31,7 @@ namespace LogicModelLibrary
                 StringBuilder ret = new StringBuilder("[");
                 foreach (var photo in Photos)
                 {
-                    ret.Append(photo);
+                    ret.Append("\""+photo+"\"");
                     ret.Append(",");
                 }
                 ret.Remove(ret.Length - 1, 1);

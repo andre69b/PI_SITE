@@ -211,6 +211,7 @@
     <Content Include="Content\MyScripts\bootstrap.min.js" />
     <Content Include="Content\MyScripts\holder.js" />
     <Content Include="Content\MyScripts\jquery.js" />
+    <Content Include="Content\MyScripts\OneDestinationScript.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
