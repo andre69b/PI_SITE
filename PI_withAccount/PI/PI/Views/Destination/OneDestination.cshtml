@@ -100,13 +100,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
-            <h3>Check In: </h3>
+            <h3>Check In</h3>
             <div id="CalendarIn">
                 @Html.Partial("Calendar", Model.arrayCalendarCheckIn)
             </div>
         </div>
         <div class="col-md-3">
-            <h3>Check Out:</h3>
+            <h3>Check Out</h3>
             <div id="CalendarOut">
                 @Html.Partial("Calendar", Model.arrayCalendarCheckOut)
             </div>
@@ -117,6 +117,7 @@
                     <input type="hidden" id="CheckIn" name="CheckIn" value="" required="">
                     <input type="hidden" id="CheckOut" name="CheckOut" value="" required="">
                 </div>
+                <p>Escolha uma data para reserva</p>
                 <button type="submit" id="submitCalendar" class="btn btn-default">Submit</button>
             </form>
         </div>

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text;
 using System.Web.UI;
 
 namespace LogicModelLibrary
@@ -23,6 +25,19 @@ namespace LogicModelLibrary
         {
             public int Highlight { get; set; }
             public string[] Photos { get; set; }
+
+            public string PhotosJson()
+            {
+                StringBuilder ret = new StringBuilder("[");
+                foreach (var photo in Photos)
+                {
+                    ret.Append(photo);
+                    ret.Append(",");
+                }
+                ret.Remove(ret.Length - 1, 1);
+                ret.Append("]");
+                return ret.ToString();
+            }
         }
 
         public class Location

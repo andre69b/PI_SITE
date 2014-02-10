@@ -22,7 +22,7 @@ namespace LogicModelLibrary
             this.filterName().filterPriceMax().filterPriceMin().filterAvabylity();
             return list;
         }
-
+    
         public string Name { get; set; }
 
         public string Location { get; set; }
