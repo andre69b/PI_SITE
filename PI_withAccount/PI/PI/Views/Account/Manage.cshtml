@@ -1,0 +1,23 @@
+﻿@model PI.Models.LocalPasswordModel
+@{
+    ViewBag.Title = "Manage Account";
+}
+@section Head{
+    <link href="../../Content/Mycss/carousel.css" rel="stylesheet">
+}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="item">
+    </div>
+</div>
+
+<p class="message-success">@ViewBag.StatusMessage</p>
+
+@if (ViewBag.HasLocalPassword)
+{
+    @Html.Partial("_ChangePasswordPartial")
+}
+else
+{ 
+    @Html.Partial("_SetPasswordPartial")
+}

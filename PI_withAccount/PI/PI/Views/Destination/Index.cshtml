@@ -1,0 +1,134 @@
+﻿@using LogicModelLibrary
+@model Info
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@section Head{
+    <link href="~/Content/Mycss/carouselContact.css" rel="stylesheet">  
+}
+
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="item">
+        </div>
+    </div><!-- /.carousel -->
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing" id="MediaContainer">
+        <!--<h2> Label </h2>-->
+        <hr />
+        @foreach (RealEstate rs in Model.LiEstates) {      
+            <div class="media" id="">    
+                <a class="pull-left" href="~/Destination/@rs.id">
+                    <img class="media-object" src="../../Images/@rs.Photos.Photos[@rs.Photos.Highlight]" data-src="holder.js/300%x200" height="200" width=300 alt="...">
+                </a>
+
+                <div class="media-body">
+                    <h4 class="media-heading"> @rs.ShortName </h4>
+                    <p> @rs.LongDescription </p>
+                </div>
+            </div>
+            <hr/>
+        }
+
+    </div>
+      
+
+<!-- PAGINATOR -->
+<div id="paginator" align="center">
+
+    <ul class="pagination">
+        <li><a href="#">&laquo;</a></li>
+        @for (int i = 1; i <= @Model.Total  ; i++) 
+        {
+            <li > <a id=@i> @i</a></li>
+        }
+        <li><a>&raquo;</a></li>
+    </ul>
+</div>
+
+<script type='text/javascript'>
+    var lastClicked = 1;
+    var array_url = [0];
+
+    
+    function ajaxRequests(id) {
+        lastClicked = id;
+
+        var request = new XMLHttpRequest();
+        var uri;
+        var method = "GET";
+        
+        var p = {};
+        var aux_p;
+        p.url = document.URL;
+
+        if (p.url.indexOf("Search") > 0) {
+            p.id = p.url.indexOf("Search");
+            p.path = p.url.substring(0, p.id + 6);
+            p.path += "/" + id;
+
+        } else {
+            p.id = p.url.indexOf("Page");
+            p.path = p.url.substring(0, p.id + 4);
+            p.path += "/" + id;
+        }
+        aux_p = p.path;
+        p.rest = "";
+        if (p.url.indexOf("?") > 0) {
+            p.rest = p.url.substring(p.url.indexOf("?"), p.url.length);
+            aux_p += p.rest;
+            if (p.rest.indexOf("ajax=1") < 0) {
+                p.rest += "&ajax=1";
+            }
+
+        }
+        else {p.rest = "?ajax=1";}
+
+
+        p.path += p.rest;
+        uri = p.path;
+
+        request.onreadystatechange = (function () {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    document.getElementById("MediaContainer").innerHTML = request.responseText;
+                   
+                    var stateObj = { foo: "bar" };
+                    history.pushState(stateObj, "page " + id, aux_p);
+                    array_url.push({ path:p.path , page:id });
+                }
+            }
+        });
+
+        request.open(method, uri);
+        request.send();
+    };
+
+    var max_elemt = "{  \"max\"   :" +  @Info.ElemPerPage + "}";
+    max_elemt = JSON.parse(max_elemt);
+    
+   
+    window.onload = function () {
+        for (var i = 1; i <= max_elemt.max; i++) {
+            document.getElementById(i).onclick = function (idx) {
+                return function () {
+                    ajaxRequests(idx);
+                };
+            }(i);
+        }
+    };
+
+</script>
+
+
+

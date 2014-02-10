@@ -1,0 +1,50 @@
+﻿@model LogicModelLibrary.RealEstateWithCalendar.CalendarCheck
+
+@{
+    ViewBag.Title = "Calendar";
+}
+<table border=3 cellspacing=3 cellpadding=3>
+    <tr>
+        @{
+            string idy = "Year" + Model.Type;
+            string idm = "Month" + Model.Type;
+            string idn = "next" + Model.Type;
+            string idp = "previous" + Model.Type;
+            string ida = "array" + Model.Type;
+        }
+       
+        <td colspan="7" align=center><b><span id="@idm" >@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.MonthGenitiveNames[Model.Array[2][0].Date.Month - 1]</span> <span id="@idy" >@Model.Array[2][0].Date.Year</span> </b></td>
+    </tr>
+    <tr>
+        <td colspan="7" align=center>
+            <span class="glyphicon glyphicon-backward" id="@idp"></span>
+            &nbsp
+            <span class="glyphicon glyphicon-forward" id="@idn"></span>
+        </td>
+    </tr>
+    <tr>
+        <td align=center>Sun</td>
+        <td align=center>Mon</td>
+        <td align=center>Tue</td>
+        <td align=center>Wed</td>
+        <td align=center>Thu</td>
+        <td align=center>Fri</td>
+        <td align=center>Sat</td>
+    </tr>
+@for (int i = 0; i < Model.Array.Length; ++i)
+{
+    
+    <tr>
+    @for (int j = 0; j < Model.Array[0].Length; ++j)
+{
+    string color = Model.Array[i][j].Available ? "#00FF00" : "#FF0000";
+    string id = @Model.Array[i][j].Date.Ticks + @Model.Type;
+    <td bgcolor="@color" align="center" id="@id">@Model.Array[i][j].Date.Day</td>
+}
+    </tr>
+}
+    
+</table>
+<p id="@ida" hidden>@Model.GetJson()</p>
+
+

@@ -1,0 +1,9 @@
+D:\ISEL\PI\1314I-LI51D-G13\PI_withAccount\PI\LogicLibrary\bin\Debug\LogicLibrary.dll
+D:\ISEL\PI\1314I-LI51D-G13\PI_withAccount\PI\LogicLibrary\bin\Debug\LogicLibrary.pdb
+D:\ISEL\PI\1314I-LI51D-G13\PI_withAccount\PI\LogicLibrary\bin\Debug\DalLibrary.dll
+D:\ISEL\PI\1314I-LI51D-G13\PI_withAccount\PI\LogicLibrary\bin\Debug\LogicModelLibrary.dll
+D:\ISEL\PI\1314I-LI51D-G13\PI_withAccount\PI\LogicLibrary\bin\Debug\DalLibrary.pdb
+D:\ISEL\PI\1314I-LI51D-G13\PI_withAccount\PI\LogicLibrary\bin\Debug\LogicModelLibrary.pdb
+D:\ISEL\PI\1314I-LI51D-G13\PI_withAccount\PI\LogicLibrary\obj\Debug\LogicLibrary.csprojResolveAssemblyReference.cache
+D:\ISEL\PI\1314I-LI51D-G13\PI_withAccount\PI\LogicLibrary\obj\Debug\LogicLibrary.dll
+D:\ISEL\PI\1314I-LI51D-G13\PI_withAccount\PI\LogicLibrary\obj\Debug\LogicLibrary.pdb

@@ -1,0 +1,8 @@
+﻿@model LogicModelLibrary.RealEstate.Appreciation
+
+@{
+    ViewBag.Title = "title";
+}
+<div class="alert alert-info">
+    @Model.Author&#40;@Model.DayOfAppreciation.Day / @Model.DayOfAppreciation.Month / @Model.DayOfAppreciation.Year): @Model.DescriptionOfAppreciation
+</div>

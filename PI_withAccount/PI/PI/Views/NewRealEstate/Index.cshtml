@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section Head{
+    <link href="~/Content/Mycss/Insert.css" rel="stylesheet">
+}
+<body>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="item">
+        </div>
+    </div>
+
+    <div class="container marketing">
+        <div class="info">
+            <h2>Create a Real Estate</h2>
+        </div>
+        <div class="Contact-form">
+            <form method="POST" action="NewRealEstate" enctype="multipart/form-data" id="NewRealEstateForm">
+                <div class="form-group">
+                    <label>Short name</label>
+                    <input type="text" class="form-control" id="ShortName" name="ShortName" required="">
+                </div>
+                <div class="form-group">
+                    <label>Long description</label>
+                    <input type="text" class="form-control" id="LongDescription" name="LongDescription" required="">
+                </div>
+                <div class="form-group">
+                    <label>Select a Principal photo </label>
+                    <input type="file" class="form-control" id="Photo1" name="Photo1" required="">
+                </div>
+                <div class="form-group">
+                    <label>Selects other photos </label>
+                    <input type="file" class="form-control" id="Photo" name="Photo" multiple required="">
+                </div>
+                <div class="form-group">
+                    <label>Price per week</label>
+                    <input type="number" class="form-control" id="PricePerWeek" name="PricePerWeek" required="">
+                </div>
+                <h2>Location</h2>
+                <div class="form-group">
+                    <label>Local</label>
+                    <input type="text" class="form-control" id="Local" name="_Location.Local" required="">
+                </div>
+                <div class="form-group">
+                    <label>Latitude</label>
+                    <input type="number" class="form-control" id="Latitude" name="_Location.Coordinates.Latitude" required="">
+                    <label>Longitude</label>
+                    <input type="number" class="form-control" id="Longitude" name="_Location.Coordinates.Longitude" required="">
+                </div>
+                <h2>Feature</h2>
+                <div class="form-group">
+                    <label>Capacity</label>
+                    <input type="number" class="form-control" id="Capacity" name="_Feature.Capacity" required="">
+                </div>
+                <div class="form-group">
+                    <label>Dimensions</label>
+                    <input type="number" class="form-control" id="Dimensions" name="_Feature.Dimensions" required="">
+                </div>
+                <div class="form-group">
+                    <label>Sections</label>
+                    <input type="number" class="form-control" id="Sections" name="_Feature.Sections" required="">
+                </div>
+                <div class="form-group">
+                    <label>Rooms</label>
+                    <input type="number" class="form-control" id="Rooms" name="_Feature.Rooms" required="">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
